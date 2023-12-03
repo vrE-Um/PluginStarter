@@ -1,4 +1,4 @@
-return function(self: PluginToolbar, Title: string, Description: string, Icon: string, RecordName: string, CWVH: boolean, Method: () -> (), Arguments: { }?): ()
+return function(Toolbar: PluginToolbar, Title: string, Description: string, Icon: string, RecordName: string, CWVH: boolean, Method: () -> (), Arguments: { }?): ()
         local ToolbarButton: PluginToolbarButton = Toolbar:CreateButton(Title, Description, Icon);
         ToolbarButton.ClickableWhenViewportHidden = CWVH; 
 
@@ -7,7 +7,7 @@ return function(self: PluginToolbar, Title: string, Description: string, Icon: s
                         return Arguments and Method(table.unpack(Arguments)) or Method();
                 end);
 
-                CHS:SetWaypoint(RecordName);
+                game:GetService('ChangeHistoryService'):SetWaypoint(RecordName);
         end
 
         return (ToolbarButton.Click:Connect(ButtonMethod));
