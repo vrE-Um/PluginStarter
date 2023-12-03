@@ -1,4 +1,4 @@
-return function(Title: string, Description: string, Icon: string, RecordName: string, CWVH: boolean, Method: () -> (), Arguments: { }?): ()
+return function(self: PluginToolbar, Title: string, Description: string, Icon: string, RecordName: string, CWVH: boolean, Method: () -> (), Arguments: { }?): ()
         local ToolbarButton: PluginToolbarButton = Toolbar:CreateButton(Title, Description, Icon);
         ToolbarButton.ClickableWhenViewportHidden = CWVH; 
 
